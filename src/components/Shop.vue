@@ -40,7 +40,24 @@
             </nav>
           </div>
         </aside>
-        <div class="w-full mx-4 border-2 border-black"></div>
+        <div class="w-full mx-4 border-2 border-black">
+          <div class="flex flex-wrap overflow-hidden">
+            <div v-for="i in shopUpgrades" :key="i.id" class="w-full overflow-hidden lg:w-1/2 p-4">
+              <div>
+                <div class="rounded-xl bg-gray-400 shadow-md">
+                  <img :src="i.src" alt="" class="w-full rounded-xl" />
+                  <div>
+                    <h3 class="text-center pt-2">{{ i.title }}</h3>
+                    <p class="text-justify p-4">{{ i.desc }}</p>
+
+                    <button class="w-4/5 my-4 mx-auto button text-lg bg-white hover:bg-gray-200">Buy ({{ i.price }}
+                      Jetons)</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -48,9 +65,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import shopUpgrades from "../assets/json/upgrades.json";
 
 export default defineComponent({
   components: {},
+  data() {
+
+    return { shopUpgrades }
+  },
   setup() { },
   mounted() { },
   methods: {},

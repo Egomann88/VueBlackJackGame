@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "src": "",
+    "title": "Decrease predertermintend Cards",
+    "desc": "Decrease predertermintend Cards to 1",
+    "price": 75,
+    "req": -1
+  },
+  {
+    "id": 2,
+    "src": "",
+    "title": "Decrease predertermintend Cards",
+    "desc": "Decrease predertermintend Cards to 0",
+    "price": 150,
+    "req": 1
+  },
+  {
+    "id": 3,
+    "src": "",
+    "title": "Double Button",
+    "desc": "Activate the double button",
+    "price": 50,
+    "req": 0
+  },
+  {
+    "id": 4,
+    "src": "",
+    "title": "Card value",
+    "desc": "See own Card value",
+    "price": 75,
+    "req": 0
+  },
+  {
+    "id": 5,
+    "src": "",
+    "title": "Dealers Card value",
+    "desc": "See dealers Card value (without hidden Card)",
+    "price": 100,
+    "req": 0
+  },
+  {
+    "id": 6,
+    "src": "",
+    "title": "Dealers Card value +",
+    "desc": "See dealers Card value (with hidden Card)",
+    "price": 800,
+    "req": 5
+  },
+  {
+    "id": 7,
+    "src": "",
+    "title": "Throw away 1 Card",
+    "desc": "Ability to throw 1 Card away",
+    "price": 125,
+    "req": 0
+  },
+  {
+    "id": 8,
+    "src": "",
+    "title": "Throw away 2 Cards",
+    "desc": "Ability to throw 2 Cards away",
+    "price": 375,
+    "req": 7
+  },
+  {
+    "id": 9,
+    "src": "",
+    "title": "Throw away 3 Cards",
+    "desc": "Ability to throw 3 Cards away",
+    "price": 650,
+    "req": 8
+  },
+  {
+    "id": 10,
+    "src": "",
+    "title": "Higher Priority",
+    "desc": "When both are over 21 You win, instead of the Dealer",
+    "price": 175,
+    "req": 0
+  },
+  {
+    "id": 11,
+    "src": "",
+    "title": "Increase Daily Jetons",
+    "desc": "Increase Jetons reward to 50",
+    "price": 150,
+    "req": 0
+  },
+  {
+    "id": 12,
+    "src": "",
+    "title": "Increase Daily Jetons",
+    "desc": "Increase Jetons reward to 75",
+    "price": 300,
+    "req": 11
+  },
+  {
+    "id": 13,
+    "src": "",
+    "title": "Increase Daily Jetons",
+    "desc": "Increase Jetons reward to 100",
+    "price": 500,
+    "req": 12
+  },
+  {
+    "id": 14,
+    "src": "",  
+    "title": "Increase Daily Jetons",
+    "desc": "Increase Jetons reward to 150",
+    "price": 900,
+    "req": 13
+  },
+  {
+    "id": 15,
+    "src": "",
+    "title": "Increase Daily Jetons",
+    "desc": "Increase Jetons reward to 200",
+    "price": 1400,
+    "req": 14
+  }
+]

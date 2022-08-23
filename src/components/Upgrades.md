@@ -1,9 +1,9 @@
 # Upgrades
 - decrease predertermintend card to 1 -> 0 (75 -> 150 Jetons)
-- activade the double button (50 Jetons)
+- Activate the double button (50 Jetons)
 - see own card value (75 Jetons)
 - see dealers card value (without hidden card) (100 Jetons)
-- see dealers hidden card (over up is required) (800 Jetons)
+- see dealers hidden card (800 Jetons)
 - ability to throw away 1 card(s) -> 2 -> 3 (125 -> 375 -> 650 Jetons)
 - higher Priority (win game, when both are over 21) (175 Jetons)
 - increase daily Jetons to 50 -> 75 -> 100 -> 150 -> 200  (150 -> 300 -> 500 -> 900 -> 1400 Jetons) 
@@ -12,12 +12,8 @@
 - alternate deck style (120 Jetons)
 - alternate deck style (145 Jetons)
 - alternate deck style (160 Jetons)
-- alternate deck style (165 Jetons)
-- bg (120 Jetons)
 - bg (120 Jetons)
 - bg (130 Jetons)
-- bg (140 Jetons)
-- bg (150 Jetons)
 - dark mode (300 Jetons)
 
 # Achivements
