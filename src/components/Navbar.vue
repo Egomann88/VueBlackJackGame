@@ -2,9 +2,9 @@
   <div>
     <section class="w-full mx-auto">
       <div class="relative bg-gray-200 p-4">
-        <router-link to="/" class="btn-Header">Blackjack
+        <router-link to="/" class="btn-Header inline-block">Blackjack
         </router-link>
-        <router-link to="/shop" class="btn-Header">Shop</router-link>
+        <router-link to="/shop" class="btn-Header inline-block">Shop</router-link>
       </div>
     </section>
   </div>
