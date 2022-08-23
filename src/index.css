@@ -18,6 +18,18 @@ h3 {
   @apply opacity-50;
 }
 
+.button {
+  @apply px-4 py-2 text-center shadow-md rounded-xl inline-block transition focus:outline-none focus:ring-2 focus:ring-opacity-75 transform-gpu duration-500 hover:scale-105;
+}
+
 .btn {
-  @apply px-4 py-2 bg-gray-400 text-center shadow-md rounded-xl inline-block transition focus:outline-none focus:ring-2 focus:ring-opacity-75 transform-gpu duration-500 hover:bg-gray-300 hover:scale-105;
+  @apply button bg-gray-400 hover:bg-gray-300;
+}
+
+.btn-Header {
+  @apply button hover:bg-gray-400 hover:bg-opacity-75 mx-3 tracking-wide;
+}
+
+.btn-Header-active {
+  @apply btn-Header bg-gray-400;
 }
