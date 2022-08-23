@@ -27,9 +27,5 @@ h3 {
 }
 
 .btn-Header {
-  @apply button hover:bg-gray-400 hover:bg-opacity-75 mx-3 tracking-wide;
-}
-
-.btn-Header-active {
-  @apply btn-Header bg-gray-400;
+  @apply button bg-gray-400 bg-opacity-75 hover:bg-gray-500 hover:bg-opacity-75 mx-3 tracking-wide;
 }

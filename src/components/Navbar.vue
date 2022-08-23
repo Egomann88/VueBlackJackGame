@@ -2,8 +2,9 @@
   <div>
     <section class="w-full mx-auto">
       <div class="relative bg-gray-200 p-4">
-        <button class="btn-Header">Blackjack</button>
-        <button class="btn-Header">Shop</button>
+        <router-link to="/" class="btn-Header">Blackjack
+        </router-link>
+        <router-link to="/shop" class="btn-Header">Shop</router-link>
       </div>
     </section>
   </div>
@@ -14,15 +15,11 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   components: {},
-  data() {
-    let i = 0;
-
-    return { i };
-  },
-  setup() {},
-  mounted() {},
+  setup() { },
+  mounted() { },
   methods: {},
 });
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+</style>

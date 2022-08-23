@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="w-full xl:w-3/4 mx-auto px-2 py-12">
-      <div class="relative border-2 border-black"></div>
+      <div class="relative border-2 border-black h-[400px]"></div>
     </section>
   </div>
 </template>
@@ -16,10 +16,11 @@ export default defineComponent({
 
     return { i };
   },
-  setup() {},
-  mounted() {},
+  setup() { },
+  mounted() { },
   methods: {},
 });
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+</style>
