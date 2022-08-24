@@ -198,6 +198,9 @@ export default defineComponent({
      * @returns number -> value of card
      */
     getValue(card: string): number {
+      // 1[0]
+      if (card[1] == "0") return 10;
+
       switch (card[0]) {  // is first diggit A, J, Q or K
         case "A":
           return 11;
