@@ -4,7 +4,6 @@
     <router-view />
   </div>
   <Footer />
-  <LS />
 </template>
 
 <script setup lang="ts">

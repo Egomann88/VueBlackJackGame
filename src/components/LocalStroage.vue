@@ -5,7 +5,7 @@ import { defineComponent, ObjectDirective } from "vue";
 import shopUpgrades from "../assets/json/upgrades.json";
 import accessoiresUpgrades from "../assets/json/accessoires.json";
 import achivementsUpgrades from "../assets/json/achivements.json";
-
+  
 export default defineComponent({
   components: {},
   data() {
