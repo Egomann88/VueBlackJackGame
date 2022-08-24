@@ -79,8 +79,14 @@
                   <h3 class="text-center font-semibold text-xl xl:text-2xl px-2 pt-2">{{ i.title }}</h3>
                   <p class="text-center p-4">{{ i.desc }}</p>
 
-                  <button class="w-4/5 my-4 mx-auto button text-lg bg-white hover:bg-gray-200">Buy ({{ i.price }}
-                    Jetons)</button>
+                  <button :disabled="i.price == 0" :class="i.price == 0 ? 'disabled' : ''"
+                    class="w-4/5 my-4 mx-auto button text-lg bg-white hover:bg-gray-200">
+                    <span v-if="i.price == 0">Not for Sale</span>
+                    <span v-else-if="false">Sold</span>
+                    <span v-else>
+                      Buy ({{ i.price }} Jetons)
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -108,9 +114,9 @@ export default defineComponent({
   mounted() { },
   methods: {
     /**
-     * overwrites active tab number
-     * @param newTab new Tab number
-     */
+    * overwrites active tab number
+    * @param newTab new Tab number
+    */
     switchActiveTab(newTab: number) {
       this.activeTab = newTab;
     },
@@ -118,7 +124,7 @@ export default defineComponent({
 });
 </script>
 
-<style lang="css" scoped>
+<style scoped>
 .neumorphism-shadow {
   box-shadow: -4px -4px 10px rgb(229, 231, 235), 4px 4px 10px rgba(0, 0, 0, 0.219);
 }
