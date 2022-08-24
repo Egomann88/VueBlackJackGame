@@ -2,57 +2,64 @@
   {
     "id": 1,
     "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
+    "title": "Blackjack!",
+    "desc": "Win with an Blackjack.",
+    "price": 300
   },
   {
     "id": 2,
     "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
+    "title": "Massive Overload",
+    "desc": "Reach 35 or more Points",
+    "price": 500
   },
   {
     "id": 3,
     "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
+    "title": "Double Blackjack",
+    "desc": " - ",
+    "price": 1250
   },
   {
     "id": 4,
     "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
+    "title": "Pepe",
+    "desc": " - ",
+    "price": 215215
   },
   {
     "id": 5,
     "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
+    "title": "One Hit",
+    "desc": "Win only one hit or double",
+    "price": 900
   },
   {
     "id": 6,
-    "src": "",
-    "title": "",
+    "src": "Double Tie",
+    "title": "Achieve an Tie twice in a row",
     "desc": "",
-    "price": 0
+    "price": 1660
   },
   {
     "id": 7,
     "src": "",
-    "title": "",
-    "desc": "",
+    "title": "Miser",
+    "desc": "Posses over 4000 Jetons",
     "price": 0
   },
   {
     "id": 8,
     "src": "",
-    "title": "",
-    "desc": "",
+    "title": "Debt Trap",
+    "desc": "Have depts in value of 500 Jetons",
+    "price": 0
+  },
+  {
+    "id": 9,
+    "src": "",
+    "title": "Deal with the Devil",
+    "desc": "Sell your Soul to the Devil",
     "price": 0
   }
 ]
