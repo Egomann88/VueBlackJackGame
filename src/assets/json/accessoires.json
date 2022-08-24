@@ -2,57 +2,43 @@
   {
     "id": 1,
     "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
+    "title": "alternate Card style",
+    "desc": "alternate Card design",
+    "price": 120
   },
   {
     "id": 2,
     "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
+    "title": "alternate Card style",
+    "desc": "alternate Card design",
+    "price": 145
   },
   {
     "id": 3,
     "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
+    "title": "alternate Card style",
+    "desc": "alternate Card design",
+    "price": 160
   },
   {
     "id": 4,
     "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
+    "title": "Extra Background",
+    "desc": "An new and exclusive Background",
+    "price": 120
   },
   {
     "id": 5,
     "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
+    "title": "Extra Background",
+    "desc": "An new and exclusive Background",
+    "price": 130
   },
   {
     "id": 6,
     "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
-  },
-  {
-    "id": 7,
-    "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
-  },
-  {
-    "id": 8,
-    "src": "",
-    "title": "",
-    "desc": "",
-    "price": 0
+    "title": "Dark Mode",
+    "desc": "Applies an Dark Mode option",
+    "price": 300
   }
 ]
