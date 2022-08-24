@@ -4,11 +4,14 @@
     <router-view />
   </div>
   <Footer />
+  <LS />
 </template>
 
 <script setup lang="ts">
 import Header from "./components/Navbar.vue";
 import Footer from "./components/Footer.vue";
+import LS from "./components/LocalStroage.vue";
 </script>
 
-<style scoped></style>
+<style scoped>
+</style>
