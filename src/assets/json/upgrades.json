@@ -2,7 +2,7 @@
   {
     "id": 1,
     "src": "",
-    "title": "Decrease predertermintend Cards",
+    "title": "Predertermintend Cards",
     "desc": "Decrease predertermintend Cards to 1",
     "price": 75,
     "req": -1
@@ -82,7 +82,7 @@
   {
     "id": 11,
     "src": "",
-    "title": "Increase Daily Jetons",
+    "title": "Increase Daily Jetons 1",
     "desc": "Increase Jetons reward to 50",
     "price": 150,
     "req": 0
@@ -90,7 +90,7 @@
   {
     "id": 12,
     "src": "",
-    "title": "Increase Daily Jetons",
+    "title": "Increase Daily Jetons 2",
     "desc": "Increase Jetons reward to 75",
     "price": 300,
     "req": 11
@@ -98,15 +98,15 @@
   {
     "id": 13,
     "src": "",
-    "title": "Increase Daily Jetons",
+    "title": "Increase Daily Jetons 3",
     "desc": "Increase Jetons reward to 100",
     "price": 500,
     "req": 12
   },
   {
     "id": 14,
-    "src": "",  
-    "title": "Increase Daily Jetons",
+    "src": "",
+    "title": "Increase Daily Jetons 4",
     "desc": "Increase Jetons reward to 150",
     "price": 900,
     "req": 13
@@ -114,7 +114,7 @@
   {
     "id": 15,
     "src": "",
-    "title": "Increase Daily Jetons",
+    "title": "Increase Daily Jetons 5",
     "desc": "Increase Jetons reward to 200",
     "price": 1400,
     "req": 14
