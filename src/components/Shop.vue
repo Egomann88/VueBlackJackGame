@@ -1,8 +1,8 @@
 <template>
   <div>
     <section class="w-full mx-auto py-8">
-      <div class="flex border-2 border-black">
-        <aside class="flex-shrink-0 w-[24rem] bg-gray-200">
+      <div class="block md:flex">
+        <aside class="flex-shrink-0 w-full md:w-[24rem] bg-gray-200">
           <div class="flex flex-col h-full pt-12 pb-4 rounded-lg neumorphism-shadow">
             <div
               class="flex flex-col items-center justify-center flex-shrink-0 px-4 py-2 mx-4 rounded-lg neumorphism-shadow">
@@ -11,9 +11,10 @@
                 Shop</p>
             </div>
             <nav class="flex-1 max-h-full p-4 mt-6 overflow-y-hidden">
-              <ul class="max-h-full p-2 space-y-1 overflow-y-auto divide-y divide-blue-300 neumorphism-shadow">
+              <ul
+                class="max-h-full p-2 space-y-1 overflow-y-auto divide-y divide-blue-300 rounded-lg neumorphism-shadow">
                 <li>
-                  <button
+                  <button @click="switchActiveTab(1)"
                     class="flex items-center w-full px-4 py-2 text-gray-600 transition-transform transform rounded-md hover:translate-x-1 focus:outline-none focus:ring">
                     <img src="/src/assets/money.png" alt="" class="w-12 h-12" />
 
@@ -21,7 +22,7 @@
                   </button>
                 </li>
                 <li>
-                  <button
+                  <button @click="switchActiveTab(2)"
                     class="flex items-center w-full px-4 py-2 text-gray-600 transition-transform transform rounded-md hover:translate-x-1 focus:outline-none focus:ring">
                     <img src="/src/assets/clothes.png" alt="" class="w-12 h-12" />
 
@@ -29,7 +30,7 @@
                   </button>
                 </li>
                 <li>
-                  <button
+                  <button @click="switchActiveTab(3)"
                     class="flex items-center w-full px-4 py-2 text-gray-600 transition-transform transform rounded-md hover:translate-x-1 focus:outline-none focus:ring">
                     <img src="/src/assets/star.png" alt="" class="w-12 h-12" />
 
@@ -40,19 +41,46 @@
             </nav>
           </div>
         </aside>
-        <div class="w-full mx-4 border-2 border-black">
-          <div class="flex flex-wrap overflow-hidden">
-            <div v-for="i in shopUpgrades" :key="i.id" class="w-full overflow-hidden lg:w-1/2 p-4">
-              <div>
-                <div class="rounded-xl bg-gray-400 shadow-md">
-                  <img :src="i.src" alt="" class="w-full rounded-xl" />
-                  <div>
-                    <h3 class="text-center pt-2">{{ i.title }}</h3>
-                    <p class="text-justify p-4">{{ i.desc }}</p>
+        <!--  -->
+        <div class="w-full mx-0 md:mx-4">
+          <div class="w-full flex flex-wrap justify-center items-center p-4">
+            <!--  -->
+            <div v-if="activeTab == 1" v-for="i in shopUpgrades" :key="i.id" :class="i.req == i.id - 1 ? 'hidden' : ''"
+              class="w-full lg:w-1/3 p-4">
+              <div v-if="i.req != i.id - 1" class="rounded-xl bg-gray-300 shadow-md">
+                <img :src="i.src" alt="" class="w-full rounded-xl" />
+                <div>
+                  <h3 class="text-center font-semibold text-xl xl:text-2xl px-2 pt-2">{{ i.title }}</h3>
+                  <p class="text-center p-4">{{ i.desc }}</p>
 
-                    <button class="w-4/5 my-4 mx-auto button text-lg bg-white hover:bg-gray-200">Buy ({{ i.price }}
-                      Jetons)</button>
-                  </div>
+                  <button class="w-4/5 my-4 mx-auto button text-lg bg-white hover:bg-gray-200">Buy ({{ i.price }}
+                    Jetons)</button>
+                </div>
+              </div>
+            </div>
+
+            <div v-if="activeTab == 2" v-for="i in accessoiresUpgrades" :key="i.id" class="w-full lg:w-1/3 p-4">
+              <div class="rounded-xl bg-gray-300 shadow-md">
+                <img :src="i.src" alt="" class="w-full rounded-xl" />
+                <div>
+                  <h3 class="text-center font-semibold text-xl xl:text-2xl px-2 pt-2">{{ i.title }}</h3>
+                  <p class="text-center p-4">{{ i.desc }}</p>
+
+                  <button class="w-4/5 my-4 mx-auto button text-lg bg-white hover:bg-gray-200">Buy ({{ i.price }}
+                    Jetons)</button>
+                </div>
+              </div>
+            </div>
+
+            <div v-if="activeTab == 3" v-for="i in achivementsUpgrades" :key="i.id" class="w-full lg:w-1/3 p-4">
+              <div class="rounded-xl bg-gray-300 shadow-md">
+                <img :src="i.src" alt="" class="w-full rounded-xl" />
+                <div>
+                  <h3 class="text-center font-semibold text-xl xl:text-2xl px-2 pt-2">{{ i.title }}</h3>
+                  <p class="text-center p-4">{{ i.desc }}</p>
+
+                  <button class="w-4/5 my-4 mx-auto button text-lg bg-white hover:bg-gray-200">Buy ({{ i.price }}
+                    Jetons)</button>
                 </div>
               </div>
             </div>
@@ -66,16 +94,27 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import shopUpgrades from "../assets/json/upgrades.json";
+import accessoiresUpgrades from "../assets/json/accessoires.json";
+import achivementsUpgrades from "../assets/json/achivements.json";
 
 export default defineComponent({
   components: {},
   data() {
+    let activeTab: number = 1;
 
-    return { shopUpgrades }
+    return { shopUpgrades, accessoiresUpgrades, achivementsUpgrades, activeTab }
   },
   setup() { },
   mounted() { },
-  methods: {},
+  methods: {
+    /**
+     * overwrites active tab number
+     * @param newTab new Tab number
+     */
+    switchActiveTab(newTab: number) {
+      this.activeTab = newTab;
+    },
+  },
 });
 </script>
 
