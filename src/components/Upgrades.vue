@@ -10,12 +10,12 @@
                 <tr class="bg-gray-200 text-gray-600 uppercase text-lg leading-normal">
                   <th class="py-3 px-6 text-left">Title</th>
                   <th class="py-3 px-6 text-left">Description</th>
-                  <th class="py-3 px-6 text-center">Status</th>
+                  <th class="py-3 px-6 text-left">Status</th>
                 </tr>
               </thead>
               <tbody class="text-gray-600 text-sm font-light">
                 <tr v-for="i in upgrades" :key="i.id" class="border-b border-gray-200 hover:bg-gray-100">
-                  <td class="py-3 px-6 text-left whitespace-nowrap">
+                  <td v-if="hasUnlocked(i.id)" class="py-3 px-6 text-left whitespace-nowrap">
                     <div class="flex items-center">
                       <div class="mr-2">
                         <img :src="i.src" alt="" class="w-6 h-6" />
@@ -23,14 +23,19 @@
                       <span class="text-base font-medium">{{ i.title }}</span>
                     </div>
                   </td>
-                  <td class="py-3 px-6 text-left">
+                  <td v-if="hasUnlocked(i.id)" class="py-3 px-6 text-left">
                     <div class="flex items-center">
                       <span>{{ i.desc }}</span>
                     </div>
                   </td>
-                  <td class="py-3 px-6 text-center">
-                    <span :class="i.id == 2 ? 'text-green-600 bg-green-200 ' : 'text-red-600 bg-red-200 '"
-                      class=" py-1 px-3 rounded-full text-base">{{ i.id == 2 ? 'Active' : 'Deactivated' }}</span>
+                  <td v-if="hasUnlocked(i.id)" class="flex justify-between items-center py-3 px-6 text-center">
+                    <label class="switch">
+                      <input type="checkbox" @click="toggleActive(i.id)" :checked="statusSlider[i.id]">
+                      <span class="slider round"></span>
+                    </label>
+                    <span :class="statusClass[i.id]" class="mx-auto py-2 px-3 rounded-full text-base">
+                      {{ statusText[i.id] }}
+                    </span>
                   </td>
                 </tr>
               </tbody>
@@ -49,14 +54,107 @@ import upgrades from "../assets/json/upgrades.json";
 export default defineComponent({
   components: {},
   data() {
+    let statusClass: string[] = new Array(upgrades.length);
+    let statusText: string[] = new Array(upgrades.length);
+    let statusSlider: boolean[] = new Array(upgrades.length);
 
-    return { upgrades }
+
+    return { upgrades, statusClass, statusText, statusSlider }
   },
   setup() { },
-  mounted() { },
-  methods: {},
+  mounted() {
+    this.getClasses();
+  },
+  methods: {
+    getClasses(startFrom: number = 1, endBy: number = upgrades.length) {
+      for (let i = startFrom; i < endBy; i++) {
+        this.statusClass[i] = this.hasActive(i) ? "text-green-600 bg-green-200" : "text-red-600 bg-red-200";
+        this.statusText[i] = this.hasActive(i) ? "Active" : "Deactivated";
+        this.statusSlider[i] = this.hasActive(i) ? true : false;
+      }
+    },
+
+    hasUnlocked(id: number) {
+      if (localStorage.getItem("shopUpgrade" + id) == "1") return true;
+
+      return false;
+    },
+
+    hasActive(id: number) {
+      if (localStorage.getItem("activeUpgrade" + id) == "1") return true;
+
+      return false;
+    },
+
+    async toggleActive(id: number) {
+      let value: string | null = localStorage.getItem("activeUpgrade" + id);
+
+      localStorage.setItem("activeUpgrade" + id, value == "1" ? "0" : "1");
+
+      this.getClasses(id, id + 1);
+    }
+  },
 });
 </script>
 
 <style lang="css" scoped>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #2196F3;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 </style>
