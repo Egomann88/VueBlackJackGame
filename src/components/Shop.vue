@@ -2,11 +2,12 @@
   <div>
     <section class="w-full mx-auto py-8">
       <div class="block md:flex">
+        <!-- sidebar -->
         <aside class="flex-shrink-0 w-full md:w-[24rem] bg-gray-200">
           <div class="flex flex-col h-full pt-12 pb-4 rounded-lg neumorphism-shadow">
             <div
               class="flex flex-col items-center justify-center flex-shrink-0 px-4 py-2 mx-4 rounded-lg neumorphism-shadow">
-              <img src="/src/assets/yes.png" alt="" class="neumorphism-shadow rounded-full w-16 h-16 -mt-8" />
+              <img src="/src/assets/shop/yes.png" alt="" class="neumorphism-shadow rounded-full w-16 h-16 -mt-8" />
               <p class="text-2xl px-4 py-1 font-semibold tracking-wider text-gray-600">
                 Shop</p>
             </div>
@@ -16,7 +17,7 @@
                 <li>
                   <button @click="switchActiveTab(1)"
                     class="flex items-center w-full px-4 py-2 text-gray-600 transition-transform transform rounded-md hover:translate-x-1 focus:outline-none focus:ring">
-                    <img src="/src/assets/money.png" alt="" class="w-12 h-12" />
+                    <img src="/src/assets/shop/money.png" alt="" class="w-12 h-12" />
 
                     <span class="ml-4 text-xl">Upgrades</span>
                   </button>
@@ -24,7 +25,7 @@
                 <li>
                   <button @click="switchActiveTab(2)"
                     class="flex items-center w-full px-4 py-2 text-gray-600 transition-transform transform rounded-md hover:translate-x-1 focus:outline-none focus:ring">
-                    <img src="/src/assets/clothes.png" alt="" class="w-12 h-12" />
+                    <img src="/src/assets/shop/clothes.png" alt="" class="w-12 h-12" />
 
                     <span class="ml-4 text-xl">Accessoires</span>
                   </button>
@@ -32,7 +33,7 @@
                 <li>
                   <button @click="switchActiveTab(3)"
                     class="flex items-center w-full px-4 py-2 text-gray-600 transition-transform transform rounded-md hover:translate-x-1 focus:outline-none focus:ring">
-                    <img src="/src/assets/star.png" alt="" class="w-12 h-12" />
+                    <img src="/src/assets/shop/star.png" alt="" class="w-12 h-12" />
 
                     <span class="ml-4 text-xl">Achivements</span>
                   </button>
