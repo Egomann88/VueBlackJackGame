@@ -1,0 +1,6 @@
+poker:
+https://www.happyfete.com/images/tres-grand/j/d/p/Jeton-de-poker-en-carton.jpg
+higherPriority:
+https://d3h9wgial7chxw.cloudfront.net/products/883/zoom/2017-gold-bullion-ungraded-1-ounce-britannia-coin-single-united-kingdom-the-royal-mint-1.jpg
+throwAway:
+https://tse2.mm.bing.net/th?id=OIP.GPiwF2CVEcLQaSzPYeK6RQHaHa&pid=Api
