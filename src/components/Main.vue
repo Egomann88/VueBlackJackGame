@@ -28,7 +28,13 @@
       <div class="lg:flex items-center justify-around">
         <!-- dealer -->
         <div class="mt-4 sm:m-4">
-          <h2>Dealer: <span v-if="!canHit">{{ dealerPts }}</span><span v-else>{{ dealerPts - dealerHiddenValue }}</span>
+          <h2>Dealer:
+            <span v-if="!canHit" :class="dealerPts == 21 ? blackJackClass : ''">
+              {{ dealerPts }}
+            </span>
+            <span v-else :class="dealerPts - dealerHiddenValue == 21 ? blackJackClass : ''">
+              {{ dealerPts - dealerHiddenValue }}
+            </span>
           </h2>
           <div class="sm:flex">
             <img :src="dealerHiddenCardImgSrc" alt="" height="175" width="125" class="p-1 mx-auto inline-block" />
@@ -39,7 +45,11 @@
 
         <!-- Player -->
         <div class="mt-4 sm:m-4">
-          <h2>Player: {{ playerPts }}</h2>
+          <h2>Player:
+            <span :class="playerPts == 21 ? blackJackClass : ''">
+              {{ playerPts }}
+            </span>
+          </h2>
           <div class="sm:flex">
             <img v-for="i in playerCardImgSrc.length" :key="i" :src="playerCardImgSrc[i - 1]" alt="" height="175"
               width="125" class="p-1 mx-auto inline-block">
@@ -78,7 +88,8 @@ export default defineComponent({
     let cardImgTopSrc: string = "/src/assets/cards/",
       dealerHiddenCardImgSrc: string = "/src/assets/cards/BACK.png",
       result: string = "",
-      doubleBlackJck: string = "";
+      doubleBlackJck: string = "",
+      blackJackClass: string = " text-4xl text-amber-400 ";
 
     let dealerCardImgSrc: string[] = [],
       playerCardImgSrc: string[] = [],
@@ -101,6 +112,7 @@ export default defineComponent({
       dealerHiddenCardImgSrc,
       result,
       doubleBlackJck,
+      blackJackClass,
       dealerCardImgSrc,
       playerCardImgSrc,
       deck,
