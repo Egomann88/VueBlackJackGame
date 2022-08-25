@@ -5,7 +5,7 @@ import { defineComponent, ObjectDirective } from "vue";
 import shopUpgrades from "../assets/json/upgrades.json";
 import accessoiresUpgrades from "../assets/json/accessoires.json";
 import achivementsUpgrades from "../assets/json/achivements.json";
-  
+
 export default defineComponent({
   components: {},
   data() {
@@ -26,7 +26,10 @@ export default defineComponent({
      */
     async createLocalStorage(): Promise<void> {
       let i = 1;
-      for (i = 1; i < this.highestIdUpgrade; i++) this.getLocalStorage("shopUpgrade" + i);
+      for (i = 1; i < this.highestIdUpgrade; i++) {
+        this.getLocalStorage("shopUpgrade" + i);
+        this.getLocalStorage("activeUpgrade" + i);
+      }
       for (i = 1; i < this.highestIdAccesoire; i++) this.getLocalStorage("shopAccesoire" + i);
       for (i = 1; i < this.highestIdAchivement; i++) this.getLocalStorage("shopAchivement" + i);
     },
