@@ -1,5 +1,5 @@
 <template>
-  <div class="relative mt-24">
+  <div class="relative ">
     <div class="bg-gray-300 w-full">
       <ul class="text-center py-4">
         <li>

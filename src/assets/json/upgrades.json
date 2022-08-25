@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "src": "",
+    "src": "/src/assets/shop/predertermintendCards1.png",
     "title": "Predertermintend Cards",
     "desc": "Decrease predertermintend Cards to 1",
     "price": 75,
@@ -9,31 +9,31 @@
   },
   {
     "id": 2,
-    "src": "",
-    "title": "Decrease predertermintend Cards",
+    "src": "/src/assets/shop/predertermintendCards2.png",
+    "title": "Predertermintend Cards",
     "desc": "Decrease predertermintend Cards to 0",
     "price": 150,
     "req": 1
   },
   {
     "id": 3,
-    "src": "",
-    "title": "Double Button",
-    "desc": "Activate the double button",
-    "price": 50,
-    "req": 0
-  },
-  {
-    "id": 4,
-    "src": "",
+    "src": "/src/assets/shop/cardValue.jpg",
     "title": "Card value",
     "desc": "See own Card value",
     "price": 75,
     "req": 0
   },
   {
+    "id": 4,
+    "src": "/src/assets/shop/doubleButton.png",
+    "title": "Double Button",
+    "desc": "Activate the double button",
+    "price": 50,
+    "req": 0
+  },
+  {
     "id": 5,
-    "src": "",
+    "src": "/src/assets/cards/BACK.png",
     "title": "Dealers Card value",
     "desc": "See dealers Card value (without hidden Card)",
     "price": 100,
@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "src": "",
+    "src": "/src/assets/shop/dealersCardValue.png",
     "title": "Dealers Card value +",
     "desc": "See dealers Card value (with hidden Card)",
     "price": 800,
@@ -49,7 +49,7 @@
   },
   {
     "id": 7,
-    "src": "",
+    "src": "/src/assets/shop/throwAway1.png",
     "title": "Throw away 1 Card",
     "desc": "Ability to throw 1 Card away",
     "price": 125,
@@ -57,7 +57,7 @@
   },
   {
     "id": 8,
-    "src": "",
+    "src": "/src/assets/shop/throwAway2.png",
     "title": "Throw away 2 Cards",
     "desc": "Ability to throw 2 Cards away",
     "price": 375,
@@ -65,7 +65,7 @@
   },
   {
     "id": 9,
-    "src": "",
+    "src": "/src/assets/shop/throwAway3.png",
     "title": "Throw away 3 Cards",
     "desc": "Ability to throw 3 Cards away",
     "price": 650,
@@ -73,7 +73,7 @@
   },
   {
     "id": 10,
-    "src": "",
+    "src": "/src/assets/shop/higherPriority.png",
     "title": "Higher Priority",
     "desc": "When both are over 21 You win, instead of the Dealer",
     "price": 175,
@@ -81,7 +81,7 @@
   },
   {
     "id": 11,
-    "src": "",
+    "src": "/src/assets/shop/dailyJeton.png",
     "title": "Increase Daily Jetons 1",
     "desc": "Increase Jetons reward to 50",
     "price": 150,
@@ -89,7 +89,7 @@
   },
   {
     "id": 12,
-    "src": "",
+    "src": "/src/assets/shop/dailyJeton.png",
     "title": "Increase Daily Jetons 2",
     "desc": "Increase Jetons reward to 75",
     "price": 300,
@@ -97,7 +97,7 @@
   },
   {
     "id": 13,
-    "src": "",
+    "src": "/src/assets/shop/dailyJeton.png",
     "title": "Increase Daily Jetons 3",
     "desc": "Increase Jetons reward to 100",
     "price": 500,
@@ -105,7 +105,7 @@
   },
   {
     "id": 14,
-    "src": "",
+    "src": "/src/assets/shop/dailyJeton.png",
     "title": "Increase Daily Jetons 4",
     "desc": "Increase Jetons reward to 150",
     "price": 900,
@@ -113,7 +113,7 @@
   },
   {
     "id": 15,
-    "src": "",
+    "src": "/src/assets/shop/dailyJeton.png",
     "title": "Increase Daily Jetons 5",
     "desc": "Increase Jetons reward to 200",
     "price": 1400,
