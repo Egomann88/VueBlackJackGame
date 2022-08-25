@@ -42,14 +42,13 @@
             </nav>
           </div>
         </aside>
-        <!--  -->
+        <!-- content -->
         <div class="w-full mx-0 md:mx-4">
           <div class="w-full flex flex-wrap justify-center items-center p-4">
-            <!--  -->
             <div v-if="activeTab == 1" v-for="i in shopUpgrades" :key="i.id" :class="i.req == i.id - 1 ? 'hidden' : ''"
-              class="w-full lg:w-1/3 p-4">
+              class="w-full lg:w-1/2 p-4">
               <div v-if="i.req != i.id - 1" class="rounded-xl bg-gray-300 shadow-md">
-                <img :src="i.src" alt="" class="w-full rounded-xl" />
+                <img :src="i.src" alt="" class="py-2 mx-auto max-h-96 rounded-xl" />
                 <div>
                   <h3 class="text-center font-semibold text-xl xl:text-2xl px-2 pt-2">{{ i.title }}</h3>
                   <p class="text-center p-4">{{ i.desc }}</p>
