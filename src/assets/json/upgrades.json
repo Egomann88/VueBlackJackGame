@@ -17,18 +17,18 @@
   },
   {
     "id": 3,
-    "src": "/src/assets/shop/doubleButton.png",
-    "title": "Double Button",
-    "desc": "Activate the double button",
-    "price": 50,
-    "req": 0
-  },
-  {
-    "id": 4,
     "src": "/src/assets/shop/cardValue.jpg",
     "title": "Card value",
     "desc": "See own Card value",
     "price": 75,
+    "req": 0
+  },
+  {
+    "id": 4,
+    "src": "/src/assets/shop/doubleButton.png",
+    "title": "Double Button",
+    "desc": "Activate the double button",
+    "price": 50,
     "req": 0
   },
   {
