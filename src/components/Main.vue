@@ -21,7 +21,7 @@
 
     <!-- section -->
     <section class="w-full xl:w-3/4 mx-auto px-2 py-12">
-      <img src="../assets/devil.png" alt="" class="w-24 absolute right-0 bottom-0" />
+      <img src="../assets/devil.png" alt="" class="w-24 absolute right-0 bottom-0  animation-fallDown" />
       <div class="mx-auto max-w-md">
         <p class="text-2xl border-2 border-b-0 border-black">
           Jeonts: <b>{{ playerJetons }}</b>
@@ -462,6 +462,13 @@ export default defineComponent({
   animation: scaleUp 3.5s ease 0s infinite;
 }
 
+.animation-fallDown {
+  -webkit-animation: fallDown 2.0s ease 0s;
+  -moz-animation: fallDown 2.0s ease 0s;
+  -ms-animation: fallDown 2.0s ease 0s;
+  animation: fallDown 2.0s ease 0s;
+}
+
 @-webkit-keyframes scaleUp {
   0% {
     transform: rotate(1.45);
@@ -493,6 +500,16 @@ export default defineComponent({
   100% {
     transform: rotate(1.45);
     transform: scale(1.25);
+  }
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translateY(-100vh);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
 </style>
