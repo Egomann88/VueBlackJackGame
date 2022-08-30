@@ -1,71 +1,80 @@
 <template>
-  <!-- Result - popup -->
-  <div v-if="showPopup">
-    <section class="h-screen w-screen bg-gray-700 fixed top-0 opacity-75 z-40">
-      <div @click="reset()" class="absolute inset-0 z-40"></div>
-    </section>
-    <div class="w-full md:w-1/2 fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-40">
-      <div class="flex h-full">
-        <div :class="doubleBlackJck" class="flex flex-col m-auto bg-gray-300 p-8 rounded-2xl shadow-2xl">
-          <h3>{{ result }}</h3>
-          <button @click="reset()" class="btn mt-6 border-2 border-black tracking-widest">O.K</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- sidebar -->
-  <Rules />
-
-  <!-- section -->
-  <section class="w-full xl:w-3/4 mx-auto px-2 py-12">
-    <div class="relative border-2 border-black">
-      <section v-if="restructure" class="restructure absolute w-full h-full z-30">
-        <p class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl text-white">
-          please wait a moment
-        </p>
+  <div class="min-h-screen relative">
+    <!-- Result - popup -->
+    <div v-if="showPopup">
+      <section class="h-screen w-screen bg-gray-700 fixed top-0 opacity-75 z-40">
+        <div @click="reset()" class="absolute inset-0 z-40"></div>
       </section>
-      <div class="lg:flex items-center justify-around">
-        <!-- dealer -->
-        <div class="mt-4 sm:m-4">
-          <h2>Dealer:
-            <span v-if="!canHit" :class="dealerPts == 21 ? blackJackClass : ''">
-              {{ dealerPts }}
-            </span>
-            <span v-else :class="dealerPts - dealerHiddenValue == 21 ? blackJackClass : ''">
-              {{ dealerPts - dealerHiddenValue }}
-            </span>
-          </h2>
-          <div class="sm:flex">
-            <img :src="dealerHiddenCardImgSrc" alt="" height="175" width="125" class="p-1 mx-auto inline-block" />
-            <img v-for="i in dealerCardImgSrc.length" :key="i" :src="dealerCardImgSrc[i - 1]" alt="" height="175"
-              width="125" class="p-1 mx-auto inline-block" />
+      <div class="w-full md:w-1/2 fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-40">
+        <div class="flex h-full">
+          <div :class="doubleBlackJck" class="flex flex-col m-auto bg-gray-300 p-8 rounded-2xl shadow-2xl">
+            <h3>{{ result }}</h3>
+            <h4 class="my-2">{{ jetonsMsg }}</h4>
+            <button @click="reset()" class="btn mt-6 border-2 border-black tracking-widest">O.K</button>
           </div>
         </div>
-
-        <!-- Player -->
-        <div class="mt-4 sm:m-4">
-          <h2>Player:
-            <span :class="playerPts == 21 ? blackJackClass : ''">
-              {{ playerPts }}
-            </span>
-          </h2>
-          <div class="sm:flex">
-            <img v-for="i in playerCardImgSrc.length" :key="i" :src="playerCardImgSrc[i - 1]" alt="" height="175"
-              width="125" class="p-1 mx-auto inline-block">
-          </div>
-        </div>
-      </div>
-      <!-- result -->
-      <div class="mt-4">
-        <button @click="play(1);" :disabled="!canHit" :class="!canHit ? 'disabled' : ''"
-          class="btn w-full sm:w-1/4 mt-2 sm:m-2">Hit</button>
-        <button @click="play(2);" :disabled="!canHit" :class="!canHit ? 'disabled' : ''"
-          class="btn w-full sm:w-1/4 mt-2 sm:m-2">Double</button>
-        <button @click="stay()" class="btn w-full sm:w-1/4 mt-2 sm:m-2">Stay</button>
       </div>
     </div>
-  </section>
+
+    <!-- sidebar -->
+    <Rules />
+
+    <!-- section -->
+    <section class="w-full xl:w-3/4 mx-auto px-2 py-12">
+      <img src="../assets/devil.png" alt="" class="w-24 absolute right-0 bottom-0" />
+      <div class="mx-auto max-w-md">
+        <p class="text-2xl border-2 border-b-0 border-black">
+          Jeonts: <b>{{ playerJetons }}</b>
+        </p>
+      </div>
+      <div class="relative border-2 border-black">
+        <section v-if="restructure" class="restructure absolute w-full h-full z-30">
+          <p class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl text-white">
+            please wait a moment
+          </p>
+        </section>
+        <div class="lg:flex items-center justify-around">
+          <!-- dealer -->
+          <div class="mt-4 sm:m-4">
+            <h2>Dealer:
+              <span v-if="!canHit" :class="dealerPts == 21 ? blackJackClass : ''">
+                {{ dealerPts }}
+              </span>
+              <span v-else :class="dealerPts - dealerHiddenValue == 21 ? blackJackClass : ''">
+                {{ dealerPts - dealerHiddenValue }}
+              </span>
+            </h2>
+            <div class="sm:flex">
+              <img :src="dealerHiddenCardImgSrc" alt="" height="175" width="125" class="p-1 mx-auto inline-block" />
+              <img v-for="i in dealerCardImgSrc.length" :key="i" :src="dealerCardImgSrc[i - 1]" alt="" height="175"
+                width="125" class="p-1 mx-auto inline-block" />
+            </div>
+          </div>
+
+          <!-- Player -->
+          <div class="mt-4 sm:m-4">
+            <h2>Player:
+              <span :class="playerPts == 21 ? blackJackClass : ''">
+                {{ playerPts }}
+              </span>
+            </h2>
+            <div class="sm:flex">
+              <img v-for="i in playerCardImgSrc.length" :key="i" :src="playerCardImgSrc[i - 1]" alt="" height="175"
+                width="125" class="p-1 mx-auto inline-block">
+            </div>
+          </div>
+        </div>
+        <!-- result -->
+        <div class="mt-4">
+          <button @click="play(1);" :disabled="!canHit" :class="!canHit ? 'disabled' : ''"
+            class="btn w-full sm:w-1/4 mt-2 sm:m-2">Hit</button>
+          <button @click="play(2);" :disabled="!canHit" :class="!canHit ? 'disabled' : ''"
+            class="btn w-full sm:w-1/4 mt-2 sm:m-2">Double</button>
+          <button @click="stay()" class="btn w-full sm:w-1/4 mt-2 sm:m-2">Stay</button>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script lang="ts">
@@ -83,13 +92,16 @@ export default defineComponent({
       dealerAceCount: number = 0,
       playerAceCount: number = 0,
       dealerHiddenValue: number = 0,
-      playerCardsOnField: number = 0;
+      playerCardsOnField: number = 0,
+      playerJetons: number = parseInt(localStorage.getItem("jetons")!),
+      gameJetons: number = 0; // per dealer and playercard + 5 jetons ; facevalue of won jetons ; blackjack triples value ; double blackjack sixtees 
 
     let cardImgTopSrc: string = "/src/assets/cards/",
       dealerHiddenCardImgSrc: string = "/src/assets/cards/BACK.png",
       result: string = "",
       doubleBlackJck: string = "",
-      blackJackClass: string = " text-4xl text-amber-400 ";
+      blackJackClass: string = " text-4xl text-amber-400 ",
+      jetonsMsg: string = "";
 
     let dealerCardImgSrc: string[] = [],
       playerCardImgSrc: string[] = [],
@@ -108,11 +120,14 @@ export default defineComponent({
       playerAceCount,
       dealerHiddenValue,
       playerCardsOnField,
+      playerJetons,
+      gameJetons,
       cardImgTopSrc,
       dealerHiddenCardImgSrc,
       result,
       doubleBlackJck,
       blackJackClass,
+      jetonsMsg,
       dealerCardImgSrc,
       playerCardImgSrc,
       deck,
@@ -166,6 +181,7 @@ export default defineComponent({
     startGame() {
       let i: number = 0;
       let card: string | undefined = "";
+      this.gameJetons = 0; // resets Jetons / must be an positive value
 
       this.hidden = this.deck.pop();
 
@@ -175,6 +191,7 @@ export default defineComponent({
       }
 
       // reckon with the hidden value right from the start
+      this.gameJetons += 5;
       this.dealerHiddenValue += this.getValue(this.hidden);
       this.dealerPts += this.getValue(this.hidden);
       this.dealerAceCount += this.checkAce(this.hidden);
@@ -185,6 +202,7 @@ export default defineComponent({
           card = this.deck.pop(); // cut last value
         } while (card == undefined);  // prevents loading crash
 
+        this.gameJetons += 5; // increase gameJetons
         this.dealerCardImgSrc[i] = this.cardImgTopSrc + card + ".png";  // add cardSrc
         this.dealerPts += this.getValue(card);  // adds value of card to dealers points
         this.dealerAceCount += this.checkAce(card);  // check if aces exists
@@ -197,6 +215,7 @@ export default defineComponent({
           card = this.deck.pop(); // cut last value
         } while (card == undefined);  // prevents loading crash
 
+        this.gameJetons += 5; // increase gameJetons
         this.playerCardImgSrc[i] = this.cardImgTopSrc + card + ".png";  // add cardSrc
         this.playerPts += this.getValue(card);  // adds value of card to dealers points
         this.playerAceCount += this.checkAce(card);  // check if aces exists
@@ -231,10 +250,9 @@ export default defineComponent({
      * @returns 1 if is an a ace / 0 when not
      */
     checkAce(card: string): number {
+      // A-D, A-S, K-D, 10-S,...
+      if (card[0] == "A") return 1;
 
-      if (card[0] == "A") { // A-D, A-S, K-D, 10-S,...
-        return 1;
-      }
       return 0;
     },
 
@@ -264,7 +282,7 @@ export default defineComponent({
      * @func adds the Value of the card to the max points
      * @func checkAce adds if an ace was drawn
      * @func reduceAce 
-     * @param { number } mult
+     * @param { number } mult card value multiplier
      * @returns number
      */
     play(mult: number): number {
@@ -281,6 +299,7 @@ export default defineComponent({
         return 0;
       }
 
+      this.gameJetons += 5 * mult;  // double card, also doubles jetons
       this.playerCardImgSrc[this.playerCardsOnField++] = this.cardImgTopSrc + card + ".png";  // add cardSrc
       this.playerPts += this.getValue(card) * mult;  // adds value of card to dealers points
       this.playerAceCount = this.checkAce(card) * mult;  // check if aces exists
@@ -303,38 +322,86 @@ export default defineComponent({
      * @func togglePopup shows won / lose Popup
      */
     stay(): void {
+      let resultMsg: string = "";
+      let jetonsMsg: string = "";
+      let won: boolean = false;
+
       this.dealerPts > 21 ? this.reduceAce(this.dealerPts, this.dealerAceCount) : this.dealerPts; // reduces Points, if nessesary
       this.playerPts > 21 ? this.reduceAce(this.playerPts, this.playerAceCount) : this.playerPts; // reduces Points, if nessesary
 
       this.canHit = false;  // show true value of dealer
       this.dealerHiddenCardImgSrc = this.cardImgTopSrc + this.hidden + ".png"; // hidden img
 
-      let msg: string = "";
+      this.getJeontsValue();
+
       if ((this.playerPts == 21 || this.dealerPts == 21) && this.playerPts != this.dealerPts) {
-        msg = "Blackjack! ";
-        this.playerPts != 21 ? msg += "You Lose!" : msg += "You Win!";
+        resultMsg = "Blackjack! ";
+        if (this.playerPts != 21) {
+          resultMsg += "You Lose!";
+          jetonsMsg = "You lost " + this.gameJetons + " Jeonts.";
+        } else {
+          resultMsg += "You Win!";
+          jetonsMsg = "You won " + this.gameJetons + " Jeonts.";
+          won = true;
+        }
       } else if (this.playerPts > 21) {  // even if dealer is also over 21, you still lose
-        msg = "You Lose!";
+        resultMsg = "You Lose!";
+        jetonsMsg = "You lost " + this.gameJetons + " Jeonts.";
       } else if (this.dealerPts > 21) {
-        msg = "You Win!";
+        resultMsg = "You Win!";
+        jetonsMsg = "You won " + this.gameJetons + " Jeonts.";
+        won = true;
       } else if (this.playerPts == this.dealerPts) {
         if (this.playerPts == 21) {
-          msg = "double Blackjack!";
+          resultMsg = "double Blackjack!";
+          jetonsMsg = "You get " + this.gameJetons + " Jeonts.";
+          won = true; // win = get
           this.doubleBlackJck = "bg-gradient-to-r from-red-400 to-black text-white animation-scaleUp";
         } else {
-          msg = "Tie!";
+          resultMsg = "Tie!";
+          jetonsMsg = "You keep your Jeonts.";
+          this.gameJetons = 0;  // delete all Jetons, to not lose any
         }
       } else if (this.playerPts < this.dealerPts) {
-        msg = "You Lose!";
+        resultMsg = "You Lose!";
+        jetonsMsg = "You lost " + this.gameJetons + " Jeonts.";
       } else if (this.playerPts > this.dealerPts) {
-        msg = "You Win!";
+        resultMsg = "You Win!";
+        jetonsMsg = "You won " + this.gameJetons + " Jeonts.";
+        won = true;
       } else {
         console.error("Unknown Error");
       }
 
-      this.result = msg;
+      if (won) this.playerJetons += this.gameJetons;
+      else this.playerJetons -= this.gameJetons;
+
+      localStorage.setItem("jetons", this.playerJetons.toString());
+
+      this.result = resultMsg;
+      this.jetonsMsg = jetonsMsg;
 
       this.togglePopup();
+    },
+
+
+    /**
+     * calculates gameJetons value
+     * 
+     * if dealer or player is over 21, the value will be halfed. 
+     * When Blackjack, Jetons will be trippled, when double Blackjack, will Jetons be sixfolded
+     */
+    getJeontsValue(): void {
+      let dPts = 0;
+      let pPts = 0;
+
+      this.dealerPts > 21 ? dPts = Math.round(this.dealerPts / 2) : dPts = this.dealerPts;
+      this.playerPts > 21 ? pPts = Math.round(this.playerPts / 2) : pPts = this.playerPts;
+
+      this.gameJetons += dPts + pPts;
+
+      if (this.dealerPts == 21 && this.playerPts == 21) this.gameJetons *= 6;
+      else if (this.dealerPts == 21 || this.playerPts == 21) this.gameJetons *= 3;
     },
 
     /**
@@ -389,10 +456,10 @@ export default defineComponent({
 }
 
 .animation-scaleUp {
-  -webkit-animation: scaleUp 2.5s ease 0s infinite;
-  -moz-animation: scaleUp 2.5s ease 0s infinite;
-  -ms-animation: scaleUp 2.5s ease 0s infinite;
-  animation: scaleUp 2.5s ease 0s infinite;
+  -webkit-animation: scaleUp 3.5s ease 0s infinite;
+  -moz-animation: scaleUp 3.5s ease 0s infinite;
+  -ms-animation: scaleUp 3.5s ease 0s infinite;
+  animation: scaleUp 3.5s ease 0s infinite;
 }
 
 @-webkit-keyframes scaleUp {
