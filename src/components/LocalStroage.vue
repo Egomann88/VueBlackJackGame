@@ -32,7 +32,9 @@ export default defineComponent({
       }
       for (i = 1; i < this.highestIdAccesoire; i++) this.getLocalStorage("shopAccesoire" + i);
       for (i = 1; i < this.highestIdAchivement; i++) this.getLocalStorage("shopAchivement" + i);
-      this.setLocalStorage("jetons", "300");
+      if (!localStorage.getItem("jetons")) {
+        this.setLocalStorage("jetons", "300");
+      }
       this.getLocalStorage("devil");
     },
 
