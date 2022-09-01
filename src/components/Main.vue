@@ -21,7 +21,6 @@
 
     <!-- section -->
     <section class="w-full xl:w-3/4 mx-auto px-2 py-12">
-      <img src="../assets/devil.png" alt="" class="w-24 absolute right-0 bottom-0  animation-fallDown" />
       <div class="mx-auto max-w-md">
         <p class="text-2xl border-2 border-b-0 border-black">
           Jeonts: <b>{{ playerJetons }}</b>
@@ -74,6 +73,20 @@
         </div>
       </div>
     </section>
+    <div class="bg-gradient-to-b from-white via-red-400 to-red-900">
+      <!-- <div class="pt-32 md:absolute right-0 bottom-40 w-1/5 mx-auto">
+        <div class="bubble relative bg-gray-300 rounded-xl py-4 mx-auto border-2 border-black">
+          sello
+          <div></div>
+        </div>
+
+      </div> -->
+      <div class="w-64 bg-black text-white p-3 m-5 relative arrow-bottom mx-auto">
+        Should we macke a dela?
+      </div>
+      <img src="../assets/devil.png" alt=""
+        class="w-44 md:w-24 md:absolute right-0 bottom-0 mx-auto animation-fallDown" />
+    </div>
   </div>
 </template>
 
@@ -453,6 +466,19 @@ export default defineComponent({
 .restructure {
   background-color: #818181;
   opacity: .8;
+}
+
+.arrow-bottom:after {
+  content: " ";
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  bottom: -22px;
+  border-top: 25px solid black;
+  border-right: 25px solid transparent;
+  border-left: 25px solid transparent;
+  border-bottom: none;
+  transform: translateX(-50%);
 }
 
 .animation-scaleUp {
