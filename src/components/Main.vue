@@ -73,19 +73,14 @@
         </div>
       </div>
     </section>
-    <div class="bg-gradient-to-b from-white via-red-400 to-red-900">
-      <!-- <div class="pt-32 md:absolute right-0 bottom-40 w-1/5 mx-auto">
-        <div class="bubble relative bg-gray-300 rounded-xl py-4 mx-auto border-2 border-black">
-          sello
-          <div></div>
+    <div v-if="devil[0]" class="bg-gradient-to-b from-white via-red-400 to-red-900">
+      <div class="pt-24">
+        <div class="w-64 bg-black text-white p-3 m-5 relative arrow-bottom mx-auto">
+          Should we macke a dela?
         </div>
-
-      </div> -->
-      <div class="w-64 bg-black text-white p-3 m-5 relative arrow-bottom mx-auto">
-        Should we macke a dela?
+        <img src="../assets/devil.png" alt=""
+          class="w-44 md:w-24 md:absolute right-0 bottom-0 mx-auto animation-fallDown cursor-pointer" />
       </div>
-      <img src="../assets/devil.png" alt=""
-        class="w-44 md:w-24 md:absolute right-0 bottom-0 mx-auto animation-fallDown" />
     </div>
   </div>
 </template>
@@ -107,7 +102,7 @@ export default defineComponent({
       dealerHiddenValue: number = 0,
       playerCardsOnField: number = 0,
       playerJetons: number = parseInt(localStorage.getItem("jetons")!),
-      gameJetons: number = 0; // per dealer and playercard + 5 jetons ; facevalue of won jetons ; blackjack triples value ; double blackjack sixtees 
+      gameJetons: number = 0; // per dealer and playercard + 5 jetons ; facevalue of won jetons ; blackjack triples value ; double blackjack sixtees
 
     let cardImgTopSrc: string = "/src/assets/cards/",
       dealerHiddenCardImgSrc: string = "/src/assets/cards/BACK.png",
@@ -125,6 +120,8 @@ export default defineComponent({
     let canHit: boolean = true,
       showPopup: boolean = false,
       restructure: boolean = false;
+
+    let devil: boolean[] = [false, false];  // appear, deal
 
     return {
       dealerPts,
@@ -148,15 +145,24 @@ export default defineComponent({
       canHit,
       showPopup,
       restructure,
+      devil
     }
   },
   setup() { },
   mounted() {
+    this.devilAppear();
     this.buildDeck();
     this.shuffleDeck();
     this.startGame();
   },
   methods: {
+    devilAppear() {
+      if (this.playerJetons < 100)
+        this.devil[0] = true;
+      else
+        this.devil[0] = false;
+    },
+
     /**
      * filles the deck with all cards
      */
@@ -176,8 +182,8 @@ export default defineComponent({
      */
     shuffleDeck() {
       for (let i = 0; i < this.deck.length; i++) {
-        let j = Math.round(Math.random() * this.deck.length);
-        let temp = this.deck[i];
+        const j = Math.round(Math.random() * this.deck.length);
+        const temp = this.deck[i];
         this.deck[i] = this.deck[j];
         this.deck[j] = temp;
       }
@@ -390,6 +396,8 @@ export default defineComponent({
       else this.playerJetons -= this.gameJetons;
 
       localStorage.setItem("jetons", this.playerJetons.toString());
+
+      this.devilAppear(); // hide / show devil
 
       this.result = resultMsg;
       this.jetonsMsg = jetonsMsg;

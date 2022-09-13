@@ -9,9 +9,9 @@ import achivementsUpgrades from "../assets/json/achivements.json";
 export default defineComponent({
   components: {},
   data() {
-    let highestIdUpgrade: number = shopUpgrades.length;
-    let highestIdAccesoire: number = accessoiresUpgrades.length;
-    let highestIdAchivement: number = achivementsUpgrades.length;
+    const highestIdUpgrade: number = shopUpgrades.length;
+    const highestIdAccesoire: number = accessoiresUpgrades.length;
+    const highestIdAchivement: number = achivementsUpgrades.length;
 
 
     return { highestIdUpgrade, highestIdAccesoire, highestIdAchivement }
@@ -41,12 +41,10 @@ export default defineComponent({
       if (!localStorage.getItem("shopAchivements"))
         this.setLocalStorage("shopAchivements", JSON.stringify(highestValue));
 
-      highestValue = new Array(2).fill('0');
-      if (!localStorage.getItem("devil"))
-        this.setLocalStorage("devil", JSON.stringify(highestValue));
-
       if (!localStorage.getItem("jetons"))
         this.setLocalStorage("jetons", "300");
+
+      this.getLocalStorage("devilDeal");
     },
 
     /**
@@ -77,4 +75,5 @@ export default defineComponent({
 </script>
 
 <style lang="css" scoped>
+
 </style>
