@@ -1,7 +1,7 @@
 <template></template>
 
 <script lang="ts">
-import { defineComponent, ObjectDirective } from "vue";
+import { defineComponent } from "vue";
 import shopUpgrades from "../assets/json/upgrades.json";
 import accessoiresUpgrades from "../assets/json/accessoires.json";
 import achivementsUpgrades from "../assets/json/achivements.json";
@@ -25,30 +25,42 @@ export default defineComponent({
      * creates all nesseary LS variables
      */
     async createLocalStorage(): Promise<void> {
-      let i = 1;
-      for (i = 1; i < this.highestIdUpgrade; i++) {
-        this.getLocalStorage("shopUpgrade" + i);
-        this.getLocalStorage("activeUpgrade" + i);
-      }
-      for (i = 1; i < this.highestIdAccesoire; i++) this.getLocalStorage("shopAccesoire" + i);
-      for (i = 1; i < this.highestIdAchivement; i++) this.getLocalStorage("shopAchivement" + i);
-      if (!localStorage.getItem("jetons")) {
+      let highestValue: string[] = new Array(this.highestIdUpgrade).fill('0');
+
+      if (!localStorage.getItem("shopUpgrades"))
+        this.setLocalStorage("shopUpgrades", JSON.stringify(highestValue));
+
+      if (!localStorage.getItem("activeUpgrades"))
+        this.setLocalStorage("activeUpgrades", JSON.stringify(highestValue));
+
+      highestValue = new Array(this.highestIdAccesoire).fill('0');
+      if (!localStorage.getItem("shopAccesoires"))
+        this.setLocalStorage("shopAccesoires", JSON.stringify(highestValue));
+
+      highestValue = new Array(this.highestIdAchivement).fill('0');
+      if (!localStorage.getItem("shopAchivements"))
+        this.setLocalStorage("shopAchivements", JSON.stringify(highestValue));
+
+      highestValue = new Array(2).fill('0');
+      if (!localStorage.getItem("devil"))
+        this.setLocalStorage("devil", JSON.stringify(highestValue));
+
+      if (!localStorage.getItem("jetons"))
         this.setLocalStorage("jetons", "300");
-      }
-      this.getLocalStorage("devil");
     },
 
     /**
      * Checks if searched item exsists, if not it will be created with 0 as value
-     * @param item name / id of Item in LS
+     * @param { boolean } item name / id of Item in LS
+     * @param { boolean } isArray checks if aimed LS item is an array
      */
-    async getLocalStorage(item: string): Promise<String> {
+    async getLocalStorage(item: string, isArray: boolean = false): Promise<String> {
       let value: string | null = localStorage.getItem(item);
       if (value == null) {
-        this.setLocalStorage(item, "0");
-        value = "0";
+        this.setLocalStorage(item, !isArray ? "0" : JSON.stringify("[]"));
+        value = !isArray ? "0" : JSON.stringify("[]");
       }
-      return value;
+      return JSON.parse(value);
     },
 
     /**
